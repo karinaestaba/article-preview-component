@@ -1,0 +1,165 @@
+$very_dark_grayish_blue: hsl(217, 19%, 35%)
+$desaturated_dark_blue: hsl(214, 17%, 51%)
+$grayish_blue: hsl(212, 23%, 69%)
+$light_grayish_blue: hsl(210, 46%, 95%)
+$font_size: 13px
+$font-family: 'Manrope', sans-serif
+
+*,
+*::after,
+*::before
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+html,
+body
+  height: 100%
+  background-color: $light_grayish_blue
+
+body
+  min-height: 100vh
+  font-size: $font_size
+  font-family: $font-family
+  line-height: 19px
+  color: lighten($desaturated_dark_blue, 10%)
+
+.container
+  max-width: 1220px
+  margin: 0 auto
+  padding: 22px
+  height: 100%
+  display: flex
+  align-items: center
+
+.card 
+  background-color: white
+  height: 515px
+  width: 332px
+  border-radius: 12px
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px
+
+  header
+    picture
+      img
+        width: 100%
+        height: 200px
+        object-fit: cover
+        border-top-left-radius: 12px
+        border-top-right-radius: 12px
+
+  &-body
+    padding: 30px 36px 0
+
+    .title
+      font-size: 16px
+      line-height: 24px
+      margin-bottom: 15px
+      color: $very_dark_grayish_blue
+
+  footer
+    padding: 53px 34px 20px
+    display: grid
+    grid-template-columns: auto 1fr auto
+    gap: 16px
+    position: relative
+    align-items: center
+    overflow: hidden
+
+    .avatar
+      > img
+        border-radius: 50%
+
+    .content
+      .title
+        display: block
+        margin-bottom: 2px
+        font-weight: 700
+        color: $very_dark_grayish_blue
+
+    .date
+      display: block
+      opacity: .7
+
+.social
+  &-actions
+    display: none
+    opacity: 0
+    
+  &-icons
+    display: flex
+    flex-wrap: wrap
+    gap: 15px
+    list-style: none
+    align-items: center
+
+input[type=checkbox]
+  display: none
+
+  + label
+    background-color: $light_grayish_blue
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 1
+    position: relative
+
+    &:hover
+      cursor: pointer
+      
+  &:checked
+    + label
+      background-color: $desaturated_dark_blue
+      width: 32px
+      height: 32px
+      top: 13px
+      opacity: 0
+      animation: slideUpFade 3s ease 0s 1 normal forwards
+
+      img
+        filter: brightness(100)
+
+      + .social
+        &-actions
+          width: 100%
+          position: absolute
+          left: 0
+          bottom: -200px
+          border-bottom-left-radius: 12px
+          border-bottom-right-radius: 12px
+          padding: 14px 32px 10px
+          height: 63px
+          align-items: center
+
+          display: flex
+          gap: 20px
+          background-color: $very_dark_grayish_blue
+          animation: slideUp 1s ease 0s 1 normal forwards
+
+          .title
+            font-weight: normal
+            text-transform: uppercase
+            letter-spacing: 4px
+            font-size: 14px
+            color: $grayish_blue
+
+@keyframes slideUp
+  0%
+    transform: translateY(0)
+    opacity: 0
+
+  100%
+    transform: translateY(-200px)
+    opacity: 1
+
+@keyframes slideUpFade
+  0%
+    transform: translateY(0)
+    opacity: 0
+
+  100%
+    transform: translateY(-2px)
+    opacity: 1
