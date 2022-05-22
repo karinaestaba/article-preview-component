@@ -24,6 +24,10 @@ body
   line-height: 19px
   color: lighten($desaturated_dark_blue, 10%)
 
+a
+  &:hover
+    opacity: .7
+
 .container
   max-width: 1220px
   margin: 0 auto
@@ -31,6 +35,7 @@ body
   height: 100%
   display: flex
   align-items: center
+  justify-content: center
 
 .card 
   background-color: white
@@ -151,6 +156,9 @@ input[type=checkbox]
     transform: translateY(0)
     opacity: 0
 
+  50%
+    opacity: 0
+
   100%
     transform: translateY(-200px)
     opacity: 1
@@ -163,3 +171,77 @@ input[type=checkbox]
   100%
     transform: translateY(-2px)
     opacity: 1
+
+@media screen and ( min-width: 998px)
+  .card
+    display: grid
+    grid-template-areas: "c-img c-body" "c-img c-footer"
+    grid-template-columns: minmax(200px, 2fr) 3fr
+    height: 282px
+    width: 730px
+    max-width: 90%
+    column-gap: 16px
+
+    header
+      grid-area: c-img
+
+      picture
+        img
+          height: 100%
+          border-top-right-radius: 0
+          border-bottom-left-radius: 12px
+
+    &-body
+      grid-area: c-body
+      padding: 35px 41px 0 24px
+
+      .title
+        font-size: 20px
+        line-height: 27px
+        margin-bottom: 13px
+
+    footer
+      grid-area: c-footer
+      padding-top: 2px
+      padding-left: 24px
+      overflow: visible
+
+      .content
+        margin-top: -4px
+
+      .action
+        position: relative
+        
+  input[type=checkbox]
+    + label
+      top: -4px
+      left: -7px
+
+    &:checked
+      + label
+        top: 0
+
+        + .social-actions
+          width: 250px
+          height: 53px
+          border-radius: 8px
+          right: -103px
+          left: auto
+          bottom: -136px
+          padding: 15px 36px
+          box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px
+
+          &::before
+            content: ''
+            display: block
+            background-color: $very_dark_grayish_blue
+            width: 36px
+            height: 32px
+            transform: rotate(45deg)
+            position: absolute
+            right: 0
+            left: 42%
+            bottom: -6px
+            z-index: -1
+
+  
