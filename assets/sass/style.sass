@@ -39,8 +39,8 @@ a
 
 .card 
   background-color: white
-  height: 515px
-  width: 332px
+  min-height: 515px
+  min-width: 332px
   border-radius: 12px
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px
 
@@ -151,6 +151,17 @@ input[type=checkbox]
             font-size: 14px
             color: $grayish_blue
 
+.credits
+  text-align: center
+  padding: 0 10px 20px
+  font-size: 12px
+
+  a
+    text-decoration: none
+    color: darken($grayish_blue, 30)
+    transition: color .5s ease
+    white-space: nowrap
+
 @keyframes slideUp
   0%
     transform: translateY(0)
@@ -173,11 +184,14 @@ input[type=checkbox]
     opacity: 1
 
 @media screen and ( min-width: 998px)
+  .container
+    height: 95vh
+
   .card
     display: grid
     grid-template-areas: "c-img c-body" "c-img c-footer"
     grid-template-columns: minmax(200px, 2fr) 3fr
-    height: 282px
+    min-height: 282px
     width: 730px
     max-width: 90%
     column-gap: 16px
